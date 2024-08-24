@@ -246,6 +246,7 @@ GameObject:
   - component: {fileID: 61963750}
   - component: {fileID: 61963751}
   - component: {fileID: 61963752}
+  - component: {fileID: 61963753}
   m_Layer: 0
   m_Name: Pineapple
   m_TagString: Untagged
@@ -357,6 +358,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
+--- !u!114 &61963753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61963748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  points: 0
+  inBox: 0
+  touchSameShape: 0
 --- !u!1 &333289401
 GameObject:
   m_ObjectHideFlags: 0
@@ -369,6 +386,7 @@ GameObject:
   - component: {fileID: 333289403}
   - component: {fileID: 333289404}
   - component: {fileID: 333289405}
+  - component: {fileID: 333289406}
   m_Layer: 0
   m_Name: Cherry
   m_TagString: Untagged
@@ -480,6 +498,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.0000019073486}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &333289406
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333289401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  points: 0
+  inBox: 0
+  touchSameShape: 0
 --- !u!1 &350766775
 GameObject:
   m_ObjectHideFlags: 0
@@ -771,6 +805,7 @@ GameObject:
   - component: {fileID: 582002082}
   - component: {fileID: 582002083}
   - component: {fileID: 582002084}
+  - component: {fileID: 582002085}
   m_Layer: 0
   m_Name: Melon
   m_TagString: Untagged
@@ -882,6 +917,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &582002085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582002080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  points: 0
+  inBox: 0
+  touchSameShape: 0
 --- !u!1 &689274262
 GameObject:
   m_ObjectHideFlags: 0
@@ -936,6 +987,7 @@ GameObject:
   - component: {fileID: 736459595}
   - component: {fileID: 736459596}
   - component: {fileID: 736459597}
+  - component: {fileID: 736459598}
   m_Layer: 0
   m_Name: Grapes
   m_TagString: Untagged
@@ -1047,6 +1099,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
+--- !u!114 &736459598
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 736459593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  points: 0
+  inBox: 0
+  touchSameShape: 0
 --- !u!1 &737054081
 GameObject:
   m_ObjectHideFlags: 0
@@ -1059,6 +1127,7 @@ GameObject:
   - component: {fileID: 737054083}
   - component: {fileID: 737054084}
   - component: {fileID: 737054085}
+  - component: {fileID: 737054086}
   m_Layer: 0
   m_Name: Tangerine
   m_TagString: Untagged
@@ -1170,6 +1239,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0.00000023841858}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &737054086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737054081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  points: 0
+  inBox: 0
+  touchSameShape: 0
 --- !u!1 &966641207
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,6 +1378,7 @@ GameObject:
   - component: {fileID: 998927800}
   - component: {fileID: 998927801}
   - component: {fileID: 998927802}
+  - component: {fileID: 998927803}
   m_Layer: 0
   m_Name: Peach
   m_TagString: Untagged
@@ -1404,6 +1490,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
+--- !u!114 &998927803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 998927798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  points: 0
+  inBox: 0
+  touchSameShape: 0
 --- !u!1 &1040810510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1534,6 +1636,7 @@ GameObject:
   - component: {fileID: 1138868120}
   - component: {fileID: 1138868121}
   - component: {fileID: 1138868122}
+  - component: {fileID: 1138868123}
   m_Layer: 0
   m_Name: Orange
   m_TagString: Untagged
@@ -1645,6 +1748,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
+--- !u!114 &1138868123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1138868118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  points: 0
+  inBox: 0
+  touchSameShape: 0
 --- !u!1 &1261937993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1657,6 +1776,7 @@ GameObject:
   - component: {fileID: 1261937995}
   - component: {fileID: 1261937996}
   - component: {fileID: 1261937997}
+  - component: {fileID: 1261937998}
   m_Layer: 0
   m_Name: Apple
   m_TagString: Untagged
@@ -1768,6 +1888,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1261937998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261937993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  points: 0
+  inBox: 0
+  touchSameShape: 0
 --- !u!1 &1569623697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1780,6 +1916,7 @@ GameObject:
   - component: {fileID: 1569623699}
   - component: {fileID: 1569623700}
   - component: {fileID: 1569623701}
+  - component: {fileID: 1569623702}
   m_Layer: 0
   m_Name: Strawberry
   m_TagString: Untagged
@@ -1891,6 +2028,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1569623702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569623697}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  points: 0
+  inBox: 0
+  touchSameShape: 0
 --- !u!1 &1590487275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,6 +2140,7 @@ GameObject:
   - component: {fileID: 1821212895}
   - component: {fileID: 1821212896}
   - component: {fileID: 1821212897}
+  - component: {fileID: 1821212898}
   m_Layer: 0
   m_Name: Pear
   m_TagString: Untagged
@@ -2098,6 +2252,22 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &1821212898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1821212893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  points: 0
+  inBox: 0
+  touchSameShape: 0
 --- !u!1 &1932455767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2197,6 +2367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b438d7cfb98ff344ae255e991b4c743, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentID: 0
   currentShape: {fileID: 1040810510}
   xPosition: 0
   minPosition: -3
@@ -2268,6 +2439,7 @@ GameObject:
   - component: {fileID: 2114267826}
   - component: {fileID: 2114267827}
   - component: {fileID: 2114267828}
+  - component: {fileID: 2114267829}
   m_Layer: 0
   m_Name: Watermelon
   m_TagString: Untagged
@@ -2379,3 +2551,19 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &2114267829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114267824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  points: 0
+  inBox: 0
+  touchSameShape: 0
