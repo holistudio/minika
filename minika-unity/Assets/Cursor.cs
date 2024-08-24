@@ -21,7 +21,7 @@ public class Cursor : MonoBehaviour
 
     bool checkInBounds(float testPosition)
     {
-        if ((testPosition > minPosition) & (testPosition < maxPosition))
+        if (((testPosition - (0.1*currentShape.transform.localScale.x/2)) > minPosition) & ((testPosition + (0.1*currentShape.transform.localScale.x/2)) < maxPosition))
         {
             return true;
         }
