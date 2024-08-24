@@ -38,6 +38,7 @@ public class Shape : MonoBehaviour
                 if(collider.gameObject.name.Equals(gameObject.name))
                 {
                     sameShapeID = collider.gameObject.GetComponent<Shape>().id;
+                    gameObject.transform.parent.GetComponent<Box>().addTouchingShapesPair(id,sameShapeID);
                     return true;
                 }
             }
