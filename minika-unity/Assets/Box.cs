@@ -107,7 +107,8 @@ public class Box : MonoBehaviour
             // Duplicate the found object
             GameObject duplicateObject = Instantiate(nextShapeObject);
 
-            
+            duplicateObject.GetComponent<Shape>().id = newID;
+            duplicateObject.GetComponent<Shape>().inBox = true;
 
             duplicateObject.transform.SetParent(gameObject.transform);
 
@@ -157,7 +158,7 @@ public class Box : MonoBehaviour
         }
     }
 
-    int mergeShape(GameObject shape1, GameObject shape2)
+    void mergeShape(GameObject shape1, GameObject shape2)
     {
         string shapeType = shape1.GetComponent<Shape>().type;
 
@@ -187,9 +188,6 @@ public class Box : MonoBehaviour
 
         // insert new shape
         insertShape(newShapeType,newPosition,shape1ID);
-
-        Debug.Log("New Shape ID: " + shape1ID);
-        return shape1ID;
     }
 
     // Update is called once per frame
@@ -206,19 +204,7 @@ public class Box : MonoBehaviour
             int[] pair = (int[]) touchingPairs[0];
             GameObject shape1 = getShape(pair[0]);
             GameObject shape2 = getShape(pair[1]);
-            int newID = mergeShape(shape1, shape2);
-            foreach (Transform child in transform)
-            {
-                if (child.gameObject.tag.Equals("Shape"))
-                {
-                    if(child.gameObject.GetComponent<Shape>().id == -1)
-                    {
-                        child.gameObject.GetComponent<Shape>().id = newID;
-                        child.gameObject.GetComponent<Shape>().inBox = true;
-                        Debug.Log("New Shape ID: " + child.gameObject.GetComponent<Shape>().id);
-                    }
-                }
-            }
+            mergeShape(shape1, shape2);
         }
     }
 }
