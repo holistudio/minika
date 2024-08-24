@@ -76,12 +76,14 @@ public class Cursor : MonoBehaviour
         // with space bar
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            // Add physics to the shape
+            currentShape.GetComponent<Rigidbody2D>().simulated = true;
+
+            // set currentShape as child of Box
+            currentShape.transform.SetParent(box.transform);
+
             // set dropped to true
             dropped = true;
-
-            // TODO: set currentShape as child of Box
-
-            // TODO: Add physics to the
         }
     }
 }
