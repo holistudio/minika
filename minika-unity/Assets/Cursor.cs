@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Cursor : MonoBehaviour
 {
+    public int currentID;
     public GameObject currentShape;
     public float xPosition;
     private float testPosition;
@@ -18,6 +19,7 @@ public class Cursor : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        currentID = 0;
         xPosition = transform.position.x;
         testPosition = transform.position.x;
         cursorSize = transform.localScale.x;
@@ -76,15 +78,20 @@ public class Cursor : MonoBehaviour
         // with space bar
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            // Assign Shape id
+            currentShape.GetComponent<Shape>().id = currentID;
+
             // Add physics to the shape
             currentShape.GetComponent<Rigidbody2D>().simulated = true;
             currentShape.GetComponent<CircleCollider2D>().enabled = true;
 
             // set currentShape as child of Box
             currentShape.transform.SetParent(box.transform);
-
+            
             // set dropped to true
             dropped = true;
+
+            currentID += 1;
         }
     }
 }
