@@ -4,10 +4,23 @@ using UnityEngine;
 
 public class Box : MonoBehaviour
 {
+    public GameObject possibleShapes;
+    private ArrayList possibleShapesList;
     // Start is called before the first frame update
     void Start()
     {
-        
+        possibleShapesList = new ArrayList();
+        foreach (Transform child in possibleShapes.transform)
+        {
+            if (child.gameObject.tag.Equals("Shape"))
+            {
+                possibleShapesList.Add(child.gameObject.name);
+            }
+        }
+        // foreach (string name in possibleShapesList)
+        // {
+        //     Debug.Log(name);
+        // }
     }
 
     void getShape (int shapeID)
