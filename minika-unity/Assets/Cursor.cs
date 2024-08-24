@@ -7,6 +7,7 @@ public class Cursor : MonoBehaviour
     public GameObject currentShape;
     public float xPosition;
     private float testPosition;
+    private float cursorSize;
     public float minPosition;
     public float maxPosition;
     public bool dropped;
@@ -17,11 +18,12 @@ public class Cursor : MonoBehaviour
     {
         xPosition = transform.position.x;
         testPosition = transform.position.x;
+        cursorSize = transform.localScale.x;
     }
 
     bool checkInBounds(float testPosition)
     {
-        if (((testPosition - (0.1*currentShape.transform.localScale.x/2)) > minPosition) & ((testPosition + (0.1*currentShape.transform.localScale.x/2)) < maxPosition))
+        if (((testPosition - (cursorSize*currentShape.transform.localScale.x/2)) > minPosition) & ((testPosition + (cursorSize*currentShape.transform.localScale.x/2)) < maxPosition))
         {
             return true;
         }
