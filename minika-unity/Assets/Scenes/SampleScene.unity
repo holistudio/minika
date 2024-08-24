@@ -370,7 +370,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  type: Pineapple
+  id: -1
   points: 0
   inBox: 0
   touchSameShape: 0
@@ -511,7 +512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  type: Cherry
+  id: -1
   points: 0
   inBox: 0
   touchSameShape: 0
@@ -931,7 +933,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  type: Melon
+  id: -1
   points: 0
   inBox: 0
   touchSameShape: 0
@@ -1114,7 +1117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  type: Grapes
+  id: -1
   points: 0
   inBox: 0
   touchSameShape: 0
@@ -1255,7 +1259,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  type: Tangerine
+  id: -1
   points: 0
   inBox: 0
   touchSameShape: 0
@@ -1507,7 +1512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  type: Peach
+  id: -1
   points: 0
   inBox: 0
   touchSameShape: 0
@@ -1780,7 +1786,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  type: Orange
+  id: -1
   points: 0
   inBox: 0
   touchSameShape: 0
@@ -1921,7 +1928,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  type: Apple
+  id: -1
   points: 0
   inBox: 0
   touchSameShape: 0
@@ -2062,7 +2070,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  type: Strawberry
+  id: -1
   points: 0
   inBox: 0
   touchSameShape: 0
@@ -2287,7 +2296,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  type: Pear
+  id: -1
   points: 0
   inBox: 0
   touchSameShape: 0
@@ -2587,7 +2597,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08350279997551141b70b4b0779bef12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
+  type: Watermelon
+  id: -1
   points: 0
   inBox: 0
   touchSameShape: 0

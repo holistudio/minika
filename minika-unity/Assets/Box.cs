@@ -95,11 +95,11 @@ public class Box : MonoBehaviour
         }
     }
 
-    void insertShape(string shapeName, Vector3 newPosition, int newID)
+    void insertShape(string shapeType, Vector3 newPosition, int newID)
     {
         // insert the shape inside the box at a specified position
         // find shape with name
-        Transform nextShapeTransform = possibleShapes.transform.Find(shapeName);
+        Transform nextShapeTransform = possibleShapes.transform.Find(shapeType);
 
         if (nextShapeTransform != null)
         {
@@ -107,18 +107,23 @@ public class Box : MonoBehaviour
             // Duplicate the found object
             GameObject duplicateObject = Instantiate(nextShapeObject);
 
-            duplicateObject.GetComponent<Shape>().id = newID;
+            
 
             duplicateObject.transform.SetParent(gameObject.transform);
 
             // Set position
             duplicateObject.transform.position = newPosition;
 
+            // Add physics to the shape
+            duplicateObject.GetComponent<Rigidbody2D>().simulated = true;
+            duplicateObject.GetComponent<CircleCollider2D>().enabled = true;
+            // Debug.Log("New Shape ID: " + duplicateObject.GetComponent<Shape>().id);
         }
         else
         {
-            Debug.Log("Child object not found.");
+            Debug.Log(shapeType + "Child object not found.");
         }
+        
     }
 
     void removePair(int[] pairToRemove)
@@ -144,22 +149,23 @@ public class Box : MonoBehaviour
         if (indexToRemove != -1)
         {
             touchingPairs.RemoveAt(indexToRemove);
-            Debug.Log("Pair removed: (" + pairToRemove[0] + ", " + pairToRemove[1] + ")");
+            // Debug.Log("Pair removed: (" + pairToRemove[0] + ", " + pairToRemove[1] + ")");
         }
         else
         {
-            Debug.Log("Pair not found: (" + pairToRemove[0] + ", " + pairToRemove[1] + ")");
+            // Debug.Log("Pair not found: (" + pairToRemove[0] + ", " + pairToRemove[1] + ")");
         }
     }
 
-    void mergeShape(GameObject shape1, GameObject shape2)
+    int mergeShape(GameObject shape1, GameObject shape2)
     {
-        string shapeName = shape1.name;
+        string shapeType = shape1.GetComponent<Shape>().type;
 
         // get shapeIDs
         int shape1ID = shape1.GetComponent<Shape>().id;
         int shape2ID = shape2.GetComponent<Shape>().id;
         int[] pairToRemove = new int[2]{shape1ID,shape2ID};
+        Debug.Log(shape1ID + " " + shape2ID);
 
         // compute the midpoint between the two shapes' centroids
         float newX = (shape1.transform.position.x + shape2.transform.position.x)/2;
@@ -167,7 +173,10 @@ public class Box : MonoBehaviour
         Vector3 newPosition = new Vector3(newX, newY, 1);
 
         // determine the next largest shape
-        int nextIndex = touchingPairs.IndexOf(shapeName) + 1;
+        int nextIndex = possibleShapesList.IndexOf(shapeType) + 1;
+
+        string newShapeType = (string) possibleShapesList[nextIndex];
+        // Debug.Log("Two " + shapeType + " make a " + newShapeType);
 
         // delete both shape1 and shape2
         Destroy(shape1);
@@ -177,7 +186,10 @@ public class Box : MonoBehaviour
         removePair(pairToRemove);
 
         // insert new shape
-        insertShape(shapeName,newPosition,shape1ID);
+        insertShape(newShapeType,newPosition,shape1ID);
+
+        Debug.Log("New Shape ID: " + shape1ID);
+        return shape1ID;
     }
 
     // Update is called once per frame
@@ -189,11 +201,24 @@ public class Box : MonoBehaviour
 
         // for each list of ID pairs
         // merge shapes into the next largest shape
-        foreach (int[] pair in touchingPairs)
+        while (touchingPairs.Count > 0)
         {
+            int[] pair = (int[]) touchingPairs[0];
             GameObject shape1 = getShape(pair[0]);
             GameObject shape2 = getShape(pair[1]);
-            mergeShape(shape1, shape2);
+            int newID = mergeShape(shape1, shape2);
+            foreach (Transform child in transform)
+            {
+                if (child.gameObject.tag.Equals("Shape"))
+                {
+                    if(child.gameObject.GetComponent<Shape>().id == -1)
+                    {
+                        child.gameObject.GetComponent<Shape>().id = newID;
+                        child.gameObject.GetComponent<Shape>().inBox = true;
+                        Debug.Log("New Shape ID: " + child.gameObject.GetComponent<Shape>().id);
+                    }
+                }
+            }
         }
     }
 }

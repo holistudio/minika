@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shape : MonoBehaviour
 {
+    public string type;
     public int id;
     public int points;
     public bool inBox;
@@ -14,8 +15,8 @@ public class Shape : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        id = -1;
-        inBox = false;
+        // id = -1;
+        // inBox = false;
         touchSameShape = false;
         circleCollider = GetComponent<CircleCollider2D>();
     }
