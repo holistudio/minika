@@ -78,6 +78,7 @@ public class Cursor : MonoBehaviour
         {
             // Add physics to the shape
             currentShape.GetComponent<Rigidbody2D>().simulated = true;
+            currentShape.GetComponent<CircleCollider2D>().enabled = true;
 
             // set currentShape as child of Box
             currentShape.transform.SetParent(box.transform);
