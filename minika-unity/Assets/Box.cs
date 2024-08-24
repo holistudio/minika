@@ -59,6 +59,7 @@ public class Box : MonoBehaviour
         }
         return true;
     }
+
     // ArrayList checkSameShapesTouch()
     // {
     //     // go through the shapes in box
@@ -166,7 +167,7 @@ public class Box : MonoBehaviour
         int shape1ID = shape1.GetComponent<Shape>().id;
         int shape2ID = shape2.GetComponent<Shape>().id;
         int[] pairToRemove = new int[2]{shape1ID,shape2ID};
-        Debug.Log(shape1ID + " " + shape2ID);
+        // Debug.Log(shape1ID + " " + shape2ID);
 
         // compute the midpoint between the two shapes' centroids
         float newX = (shape1.transform.position.x + shape2.transform.position.x)/2;
