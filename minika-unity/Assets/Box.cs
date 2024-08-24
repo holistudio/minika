@@ -6,6 +6,7 @@ public class Box : MonoBehaviour
 {
     public GameObject possibleShapes;
     private ArrayList possibleShapesList;
+    private ArrayList touchingPairs;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,40 +22,162 @@ public class Box : MonoBehaviour
         // {
         //     Debug.Log(name);
         // }
+        touchingPairs = new ArrayList();
     }
 
-    void getShape (int shapeID)
+    GameObject getShape(int shapeID)
     {
-
-    }
-
-    ArrayList checkSameShapesTouch(ArrayList shapesInBox)
-    {
-        
-        ArrayList pairs = new ArrayList();
         // go through the shapes in box
+        foreach (Transform child in transform)
+        {
+            if (child.gameObject.tag.Equals("Shape"))
+            {
+                if (child.gameObject.GetComponent<Shape>().id == shapeID)
+                {
+                    return child.gameObject;
+                }
+            }
+        }
+        Debug.Log("Shape GameObject with ID not found");
+        return null;
+    }
 
-        // return list of pairs of ids
-        return pairs;
+    bool pairNotInList(ArrayList pairs, int[] targetPair)
+    {
+        int[] samePair = new int[2]{targetPair[1], targetPair[0]};
+
+        foreach (int[] pair in pairs)
+        {
+            if ((pair[0] == samePair[0]) && (pair[1] == samePair[1]))
+            {
+                return false;
+            }
+            if ((pair[0] == targetPair[0]) && (pair[1] == targetPair[1]))
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+    // ArrayList checkSameShapesTouch()
+    // {
+    //     // go through the shapes in box
+    //     foreach (Transform child in transform)
+    //     {
+    //         if (child.gameObject.tag.Equals("Shape"))
+    //         {
+    //             // if shape is touching another shape of same name
+    //             if (child.GetComponent<Shape>().touchSameShape)
+    //             {
+    //                 int shape1ID = child.GetComponent<Shape>().id;
+    //                 int shape2ID = child.GetComponent<Shape>().sameShapeID;
+    //                 int[] pairIDs = new int[2] {shape1ID,shape2ID};
+    //                 //check ArrayList for the opposite pair, avoid double counting
+    //                 if(pairNotInList(touchingPairs, pairIDs))
+    //                 {
+    //                     touchingPairs.Add(pairIDs);
+    //                 }
+    //             }
+                
+    //         }
+    //     }
+    //     // return list of pairs of ids
+    //     return touchingPairs;
+    // }
+
+    public void addTouchingShapesPair(int shape1ID, int shape2ID)
+    {
+        int[] pairIDs = new int[2] {shape1ID,shape2ID};
+        //check ArrayList for the opposite pair, avoid double counting
+        if(pairNotInList(touchingPairs, pairIDs))
+        {
+            touchingPairs.Add(pairIDs);
+        }
     }
 
     void insertShape(string shapeName, Vector3 newPosition, int newID)
     {
         // insert the shape inside the box at a specified position
+        // find shape with name
+        Transform nextShapeTransform = possibleShapes.transform.Find(shapeName);
+
+        if (nextShapeTransform != null)
+        {
+            GameObject nextShapeObject = nextShapeTransform.gameObject;
+            // Duplicate the found object
+            GameObject duplicateObject = Instantiate(nextShapeObject);
+
+            duplicateObject.GetComponent<Shape>().id = newID;
+
+            duplicateObject.transform.SetParent(gameObject.transform);
+
+            // Set position
+            duplicateObject.transform.position = newPosition;
+
+        }
+        else
+        {
+            Debug.Log("Child object not found.");
+        }
+    }
+
+    void removePair(int[] pairToRemove)
+    {
+        // Find the index of the pair
+        int indexToRemove = -1;
+        for (int i = 0; i < touchingPairs.Count; i++)
+        {
+            int[] currentPair = (int[])touchingPairs[i];
+            if (currentPair[0] == pairToRemove[0] && currentPair[1] == pairToRemove[1])
+            {
+                indexToRemove = i;
+                break;
+            }
+            if (currentPair[0] == pairToRemove[1] && currentPair[1] == pairToRemove[0])
+            {
+                indexToRemove = i;
+                break;
+            }
+        }
+
+        // If the pair is found, remove it
+        if (indexToRemove != -1)
+        {
+            touchingPairs.RemoveAt(indexToRemove);
+            Debug.Log("Pair removed: (" + pairToRemove[0] + ", " + pairToRemove[1] + ")");
+        }
+        else
+        {
+            Debug.Log("Pair not found: (" + pairToRemove[0] + ", " + pairToRemove[1] + ")");
+        }
     }
 
     void mergeShape(GameObject shape1, GameObject shape2)
     {
-        // get shape1's ID
-        
+        string shapeName = shape1.name;
+
+        // get shapeIDs
+        int shape1ID = shape1.GetComponent<Shape>().id;
+        int shape2ID = shape2.GetComponent<Shape>().id;
+        int[] pairToRemove = new int[2]{shape1ID,shape2ID};
+
         // compute the midpoint between the two shapes' centroids
+        float newX = (shape1.transform.position.x + shape2.transform.position.x)/2;
+        float newY = (shape1.transform.position.y + shape2.transform.position.y)/2;
+        Vector3 newPosition = new Vector3(newX, newY, 1);
 
         // determine the next largest shape
+        int nextIndex = touchingPairs.IndexOf(shapeName) + 1;
 
         // delete both shape1 and shape2
+        Destroy(shape1);
+        Destroy(shape2);
+
+        // find and remove the pair from touchingPairs ArrayList
+        removePair(pairToRemove);
 
         // insert new shape
-
+        insertShape(shapeName,newPosition,shape1ID);
     }
 
     // Update is called once per frame
@@ -62,8 +185,15 @@ public class Box : MonoBehaviour
     {
         // check if the same shapes are touching
         // and if so, get a list of ID pairs
+        // touchingPairs = checkSameShapesTouch();
 
         // for each list of ID pairs
         // merge shapes into the next largest shape
+        foreach (int[] pair in touchingPairs)
+        {
+            GameObject shape1 = getShape(pair[0]);
+            GameObject shape2 = getShape(pair[1]);
+            mergeShape(shape1, shape2);
+        }
     }
 }
