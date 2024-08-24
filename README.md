@@ -1,2 +1,5 @@
 # minika
- a minimalist version of that suika game
+
+ a minimalist version of that suika game 🍉
+
+ 🍒🍓🍇🍊🟠🍎🍐🍑🍍🍈🍉
