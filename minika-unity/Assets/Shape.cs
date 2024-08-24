@@ -8,6 +8,7 @@ public class Shape : MonoBehaviour
     public int points;
     public bool inBox;
     public bool touchSameShape;
+    public int sameShapeID;
 
     private CircleCollider2D circleCollider;
     // Start is called before the first frame update
@@ -36,6 +37,7 @@ public class Shape : MonoBehaviour
             {
                 if(collider.gameObject.name.Equals(gameObject.name))
                 {
+                    sameShapeID = collider.gameObject.GetComponent<Shape>().id;
                     return true;
                 }
             }
