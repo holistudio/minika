@@ -36,7 +36,7 @@ public class Shape : MonoBehaviour
             // Check if the collider is not the same as the circle itself (to avoid self-detection)
             if (collider != circleCollider)
             {
-                if(collider.gameObject.name.Equals(gameObject.name))
+                if(collider.gameObject.GetComponent<Shape>().type.Equals(gameObject.GetComponent<Shape>().type))
                 {
                     sameShapeID = collider.gameObject.GetComponent<Shape>().id;
                     gameObject.transform.parent.GetComponent<Box>().addTouchingShapesPair(id,sameShapeID);
@@ -49,7 +49,7 @@ public class Shape : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (id > -1)
+        if ((id > -1) && inBox)
         {
             touchSameShape = checkTouchShape();
         }
