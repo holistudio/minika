@@ -15,14 +15,21 @@ public class Environment : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nextShape = updateNextShape();
+        nextShape = getNextShape();
         Debug.Log(nextShape);
+
+        updateCurrentShape(nextShape);
     }
 
-    string updateNextShape()
+    string getNextShape()
     {
         int randomIndex = Random.Range(0, nextPossibleShapes.Length);
         nextShape = nextPossibleShapes[randomIndex];
+        return nextShape;
+    }
+
+    void updateCurrentShape(string shapeName)
+    {
         // find shape with name
         Transform nextShapeTransform = possibleShapes.transform.Find(nextShape);
 
@@ -49,13 +56,16 @@ public class Environment : MonoBehaviour
         {
             Debug.Log("Child object not found.");
         }
-
-        return nextShape;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (cursor.GetComponent<Cursor>().dropped)
+        {
+            nextShape = getNextShape();
+            updateCurrentShape(nextShape);
+            cursor.GetComponent<Cursor>().dropped = false;
+        }
     }
 }

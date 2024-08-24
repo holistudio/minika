@@ -13,6 +13,8 @@ public class Cursor : MonoBehaviour
     public bool dropped;
     public float sensitivity;
 
+    public GameObject box;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -63,6 +65,15 @@ public class Cursor : MonoBehaviour
             if (e.keyCode == KeyCode.RightArrow)
             {
                 moveCursor("right");
+            }
+            if (e.keyCode == KeyCode.Space)
+            {
+                // set dropped to true
+                dropped = true;
+
+                // TODO: set currentShape as child of Box
+
+                // TODO: Add physics to the
             }
         }
     }
