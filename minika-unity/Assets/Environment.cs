@@ -17,8 +17,6 @@ public class Environment : MonoBehaviour
     {
         nextShape = getNextShape();
         Debug.Log(nextShape);
-
-        updateCurrentShape(nextShape);
     }
 
     string getNextShape()
@@ -63,9 +61,10 @@ public class Environment : MonoBehaviour
     {
         if (cursor.GetComponent<Cursor>().dropped)
         {
-            nextShape = getNextShape();
             updateCurrentShape(nextShape);
             cursor.GetComponent<Cursor>().dropped = false;
+            nextShape = getNextShape();
+            Debug.Log(nextShape);
         }
     }
 }
