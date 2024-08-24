@@ -2,8 +2,8 @@
 
 ## Milestones
 
-- [ ] Define classes and functions
-- [ ] Move cursor left and right
+- [X] Define classes and functions
+- [X] Move cursor left and right
 - [ ] Drop circles under cursor
 - [ ] Random circles of different sizes appear at the cursor after previous circle dropped
 - [ ] Circles fall and roll around in a box
