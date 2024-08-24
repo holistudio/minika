@@ -66,21 +66,22 @@ public class Cursor : MonoBehaviour
             {
                 moveCursor("right");
             }
-            if (e.keyCode == KeyCode.Space)
-            {
-                // set dropped to true
-                dropped = true;
-
-                // TODO: set currentShape as child of Box
-
-                // TODO: Add physics to the
-            }
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // Detect only key press down for dropping shapes
+        // with space bar
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            // set dropped to true
+            dropped = true;
+
+            // TODO: set currentShape as child of Box
+
+            // TODO: Add physics to the
+        }
     }
 }
