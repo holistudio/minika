@@ -2136,7 +2136,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.15686274, b: 0.3011345, a: 1}
+  m_Color: {r: 0.9568628, g: 0.16470589, b: 0.015686275, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2529,6 +2529,7 @@ MonoBehaviour:
   currentID: 0
   currentShape: {fileID: 1040810510}
   xPosition: 0
+  maxShapeSize: 1.2
   minPosition: -3
   maxPosition: 3
   tolerance: 0.1
