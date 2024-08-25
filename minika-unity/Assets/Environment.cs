@@ -7,7 +7,7 @@ public class Environment : MonoBehaviour
     public int score = 0;
 
     public string nextShape;
-    private string[] nextPossibleShapes = {"Cherry", "Strawberry", "Grapes", "Tangerine"};
+    private string[] nextPossibleShapes = {"Cherry", "Strawberry", "Grapes", "Tangerine", "Orange"};
     public bool gameOver = false;
 
     public GameObject cursor;
