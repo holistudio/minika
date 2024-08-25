@@ -21,38 +21,23 @@ public class Shape : MonoBehaviour
         circleCollider = GetComponent<CircleCollider2D>();
     }
 
-    bool checkTouchShape()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Get the center position and radius of the circle
-        Vector2 circlePosition = circleCollider.bounds.center;
-        float circleRadius = circleCollider.radius;
-
-        // Find all colliders that overlap with this circle's area
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(circlePosition, circleRadius);
-
-        // Iterate through each collider found
-        foreach (Collider2D collider in colliders)
+        if ((id > -1) && inBox)
         {
-            // Check if the collider is not the same as the circle itself (to avoid self-detection)
-            if (collider != circleCollider)
+            if(collision.gameObject.tag.Equals("Shape") && collision.gameObject.GetComponent<Shape>().type.Equals(gameObject.GetComponent<Shape>().type))
             {
-                if(collider.gameObject.tag.Equals("Shape") && collider.gameObject.GetComponent<Shape>().type.Equals(gameObject.GetComponent<Shape>().type))
-                {
-                    sameShapeID = collider.gameObject.GetComponent<Shape>().id;
-                    gameObject.transform.parent.GetComponent<Box>().addTouchingShapesPair(id,sameShapeID);
-                    return true;
-                }
+                sameShapeID = collision.gameObject.GetComponent<Shape>().id;
+                gameObject.transform.parent.GetComponent<Box>().addTouchingShapesPair(id,sameShapeID);
+                touchSameShape = true;
             }
         }
-        return false;
+        touchSameShape = false;
     }
     // Update is called once per frame
     void Update()
     {
-        if ((id > -1) && inBox)
-        {
-            touchSameShape = checkTouchShape();
-        }
+        
         
     }
 }
