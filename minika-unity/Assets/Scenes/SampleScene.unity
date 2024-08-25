@@ -2531,6 +2531,7 @@ MonoBehaviour:
   xPosition: 0
   minPosition: -3
   maxPosition: 3
+  tolerance: 0.1
   dropped: 1
   sensitivity: 0.5
   box: {fileID: 1059439980}

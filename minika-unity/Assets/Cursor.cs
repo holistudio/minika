@@ -9,8 +9,10 @@ public class Cursor : MonoBehaviour
     public float xPosition;
     private float testPosition;
     private float cursorSize;
+    public float maxShapeSize;
     public float minPosition;
     public float maxPosition;
+    public float tolerance;
     public bool dropped;
     public float sensitivity;
 
@@ -27,7 +29,8 @@ public class Cursor : MonoBehaviour
 
     bool checkInBounds(float testPosition)
     {
-        if (((testPosition - (cursorSize*currentShape.transform.localScale.x/2)) > minPosition) & ((testPosition + (cursorSize*currentShape.transform.localScale.x/2)) < maxPosition))
+        if (((testPosition - (maxShapeSize/2)) > (minPosition - tolerance)) & 
+        ((testPosition + (maxShapeSize/2)) < (maxPosition + tolerance)))
         {
             return true;
         }
