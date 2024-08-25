@@ -25,4 +25,6 @@ So a little over 12 hours after my initial commit and I have a decent "working g
 
 Pretty much just need to add a scoring system and test how the game detects the player actually getting a watermelon (or fail by having circles overflow). See milestone TODOS above.
 
+![progress](./2024-08-24-223228.png)
+
 I am most anxious to tweak the size/proportions of the different fruits and the box itself. That will take some playtesting.
