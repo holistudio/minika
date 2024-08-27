@@ -13,6 +13,25 @@
 - [ ] Detect when shapes merge into a watermelon!
 - [ ] Graphic/UI design: Display score, next shape, text
 
+## 2024-08-26
+
+Points per fruit: it doesn't seem like it's listed anywhere on the points per fruit for the Nintendo Switch version of the Suika game but here are my "notes" watching a streamer.
+
+Before anything else, it's worth highlighting that you don't get points for dropping fruit into the box. You only get points with merging fruit.
+ 
+ - Cherry => Strawberries: 1-2 pts
+ - Strawberries => Grape: 2-3 pts 
+ - Grapes => Dekopon: 6-7 pts
+ - Dekopons => Orange: 10 pts
+ - Oranges => Apple: 15 pts
+ - Apples => Pear: 21 pts
+ - Pears => Peach: 28 pts
+ - Peaches => Pineapple: 36 pts
+ - Pineappes => Melon: 45 pts
+ - Melons => Suika! 55 pts
+
+ Seems like the smaller fruits have randomized points. I'll assum the larger points for now.
+ 
 ## 2024-08-24
 
 Hello world!
