@@ -372,7 +372,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Pineapple
   id: -1
-  points: 0
+  points: 36
   inBox: 0
   touchSameShape: 0
   sameShapeID: 0
@@ -935,7 +935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Melon
   id: -1
-  points: 0
+  points: 45
   inBox: 0
   touchSameShape: 0
   sameShapeID: 0
@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Grapes
   id: -1
-  points: 0
+  points: 3
   inBox: 0
   touchSameShape: 0
   sameShapeID: 0
@@ -1261,7 +1261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Tangerine
   id: -1
-  points: 0
+  points: 7
   inBox: 0
   touchSameShape: 0
   sameShapeID: 0
@@ -1514,7 +1514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Peach
   id: -1
-  points: 0
+  points: 28
   inBox: 0
   touchSameShape: 0
   sameShapeID: 0
@@ -1913,7 +1913,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Orange
   id: -1
-  points: 0
+  points: 10
   inBox: 0
   touchSameShape: 0
   sameShapeID: 0
@@ -2055,7 +2055,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Apple
   id: -1
-  points: 0
+  points: 15
   inBox: 0
   touchSameShape: 0
   sameShapeID: 0
@@ -2197,7 +2197,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Strawberry
   id: -1
-  points: 0
+  points: 2
   inBox: 0
   touchSameShape: 0
   sameShapeID: 0
@@ -2423,7 +2423,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Pear
   id: -1
-  points: 0
+  points: 21
   inBox: 0
   touchSameShape: 0
   sameShapeID: 0
@@ -2727,7 +2727,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   type: Watermelon
   id: -1
-  points: 0
+  points: 55
   inBox: 0
   touchSameShape: 0
   sameShapeID: 0
