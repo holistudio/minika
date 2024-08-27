@@ -95,7 +95,11 @@ public class Box : MonoBehaviour
             touchingPairs.Add(pairIDs);
         }
     }
-
+    void updateScore(GameObject newShape)
+    {
+        transform.parent.gameObject.GetComponent<Environment>().score += newShape.GetComponent<Shape>().points;
+        Debug.Log("Score: " + transform.parent.gameObject.GetComponent<Environment>().score);
+    }
     void insertShape(string shapeType, Vector3 newPosition, int newID)
     {
         // insert the shape inside the box at a specified position
@@ -115,6 +119,9 @@ public class Box : MonoBehaviour
 
             // Set position
             duplicateObject.transform.position = newPosition;
+
+            // Update score
+            updateScore(duplicateObject);
 
             // Add physics to the shape
             duplicateObject.GetComponent<Rigidbody2D>().simulated = true;
@@ -158,7 +165,7 @@ public class Box : MonoBehaviour
             // Debug.Log("Pair not found: (" + pairToRemove[0] + ", " + pairToRemove[1] + ")");
         }
     }
-
+    
     void mergeShape(GameObject shape1, GameObject shape2)
     {
         string shapeType = shape1.GetComponent<Shape>().type;

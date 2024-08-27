@@ -30,8 +30,8 @@ Before anything else, it's worth highlighting that you don't get points for drop
  - Pineappes => Melon: 45 pts
  - Melons => Suika! 55 pts
 
- Seems like the smaller fruits have randomized points. I'll assum the larger points for now.
- 
+ Seems like the smaller fruits have randomized points. I'll assume the larger points for now.
+
 ## 2024-08-24
 
 Hello world!
