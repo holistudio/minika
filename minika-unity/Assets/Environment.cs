@@ -11,12 +11,57 @@ public class Environment : MonoBehaviour
     public bool gameOver = false;
 
     public GameObject cursor;
+    public GameObject nextShapeDisplay;
     public GameObject possibleShapes;
     // Start is called before the first frame update
     void Start()
     {
         nextShape = getNextShape();
         Debug.Log(nextShape);
+    }
+    GameObject copyShapeToParent(GameObject shape, GameObject parent)
+    {
+        // Duplicate the found object
+        GameObject duplicateObject = Instantiate(shape);
+
+        Vector3 objectScale = duplicateObject.transform.localScale;
+
+        duplicateObject.transform.SetParent(parent.transform);
+
+        // Set local scale
+        duplicateObject.transform.localScale = new Vector3(objectScale.x/parent.transform.localScale.x,objectScale.y/parent.transform.localScale.y,1);
+
+        // Set position
+        duplicateObject.transform.localPosition = Vector3.zero;
+
+        return duplicateObject;
+    }
+    void deleteNextShape()
+    {
+        foreach (Transform item in nextShapeDisplay.transform)
+        {
+            if(item.gameObject.tag.Equals("Shape"))
+            {
+                Destroy(item.gameObject);
+                break;
+            }
+        }
+    }
+    void displayNextShape (string nextShape)
+    {
+        // find shape with name
+        Transform nextShapeTransform = possibleShapes.transform.Find(nextShape);
+        if (nextShapeTransform != null)
+        {
+            GameObject nextShapeObject = nextShapeTransform.gameObject;
+
+            // Duplicate the found object
+            GameObject duplicateObject = copyShapeToParent(nextShapeObject, nextShapeDisplay);
+        }
+        else
+        {
+            Debug.Log("Child object not found.");
+        }
     }
 
     string getNextShape()
@@ -34,18 +79,9 @@ public class Environment : MonoBehaviour
         if (nextShapeTransform != null)
         {
             GameObject nextShapeObject = nextShapeTransform.gameObject;
+
             // Duplicate the found object
-            GameObject duplicateObject = Instantiate(nextShapeObject);
-
-            Vector3 objectScale = duplicateObject.transform.localScale;
-
-            duplicateObject.transform.SetParent(cursor.transform);
-
-            // Set local scale
-            duplicateObject.transform.localScale = new Vector3(objectScale.x/cursor.transform.localScale.x,objectScale.y/cursor.transform.localScale.y,1);
-
-            // Set position
-            duplicateObject.transform.localPosition = Vector3.zero;
+            GameObject duplicateObject = copyShapeToParent(nextShapeObject, cursor);
 
             // Set as cursor's currentShape
             cursor.GetComponent<Cursor>().currentShape = duplicateObject;
@@ -61,10 +97,11 @@ public class Environment : MonoBehaviour
     {
         if (cursor.GetComponent<Cursor>().dropped)
         {
+            deleteNextShape();
             updateCurrentShape(nextShape);
             cursor.GetComponent<Cursor>().dropped = false;
             nextShape = getNextShape();
-            Debug.Log(nextShape);
+            displayNextShape(nextShape);
         }
     }
 }
