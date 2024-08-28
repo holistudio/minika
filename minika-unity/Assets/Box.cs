@@ -99,7 +99,7 @@ public class Box : MonoBehaviour
     {
         transform.parent.gameObject.GetComponent<Environment>().score += newShape.GetComponent<Shape>().points;
         transform.parent.gameObject.GetComponent<Environment>().updateScoreDisplay();
-        Debug.Log("Score: " + transform.parent.gameObject.GetComponent<Environment>().score);
+        // Debug.Log("Score: " + transform.parent.gameObject.GetComponent<Environment>().score);
     }
     void insertShape(string shapeType, Vector3 newPosition, int newID)
     {
@@ -171,32 +171,35 @@ public class Box : MonoBehaviour
     {
         string shapeType = shape1.GetComponent<Shape>().type;
 
-        // get shapeIDs
-        int shape1ID = shape1.GetComponent<Shape>().id;
-        int shape2ID = shape2.GetComponent<Shape>().id;
-        int[] pairToRemove = new int[2]{shape1ID,shape2ID};
-        // Debug.Log(shape1ID + " " + shape2ID);
+        if(!shapeType.Equals("Watermelon"))
+        {
+            // get shapeIDs
+            int shape1ID = shape1.GetComponent<Shape>().id;
+            int shape2ID = shape2.GetComponent<Shape>().id;
+            int[] pairToRemove = new int[2]{shape1ID,shape2ID};
+            // Debug.Log(shape1ID + " " + shape2ID);
 
-        // compute the midpoint between the two shapes' centroids
-        float newX = (shape1.transform.position.x + shape2.transform.position.x)/2;
-        float newY = (shape1.transform.position.y + shape2.transform.position.y)/2;
-        Vector3 newPosition = new Vector3(newX, newY, 1);
+            // compute the midpoint between the two shapes' centroids
+            float newX = (shape1.transform.position.x + shape2.transform.position.x)/2;
+            float newY = (shape1.transform.position.y + shape2.transform.position.y)/2;
+            Vector3 newPosition = new Vector3(newX, newY, 1);
 
-        // determine the next largest shape
-        int nextIndex = possibleShapesList.IndexOf(shapeType) + 1;
+            // determine the next largest shape
+            int nextIndex = possibleShapesList.IndexOf(shapeType) + 1;
 
-        string newShapeType = (string) possibleShapesList[nextIndex];
-        // Debug.Log("Two " + shapeType + " make a " + newShapeType);
+            string newShapeType = (string) possibleShapesList[nextIndex];
+            // Debug.Log("Two " + shapeType + " make a " + newShapeType);
+
+            // find and remove the pair from touchingPairs ArrayList
+            removePair(pairToRemove);
+
+            // insert new shape
+            insertShape(newShapeType,newPosition,shape1ID);
+        }
 
         // delete both shape1 and shape2
         Destroy(shape1);
         Destroy(shape2);
-
-        // find and remove the pair from touchingPairs ArrayList
-        removePair(pairToRemove);
-
-        // insert new shape
-        insertShape(newShapeType,newPosition,shape1ID);
     }
 
     // Update is called once per frame
