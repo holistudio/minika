@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Environment : MonoBehaviour
@@ -13,11 +14,12 @@ public class Environment : MonoBehaviour
     public GameObject cursor;
     public GameObject nextShapeDisplay;
     public GameObject possibleShapes;
+    public TextMeshPro scoreText;
     // Start is called before the first frame update
     void Start()
     {
         nextShape = getNextShape();
-        Debug.Log(nextShape);
+        updateScoreDisplay();
     }
     GameObject copyShapeToParent(GameObject shape, GameObject parent)
     {
@@ -90,6 +92,10 @@ public class Environment : MonoBehaviour
         {
             Debug.Log("Child object not found.");
         }
+    }
+    public void updateScoreDisplay()
+    {
+        scoreText.text = score.ToString();
     }
 
     // Update is called once per frame

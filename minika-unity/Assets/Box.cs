@@ -98,6 +98,7 @@ public class Box : MonoBehaviour
     void updateScore(GameObject newShape)
     {
         transform.parent.gameObject.GetComponent<Environment>().score += newShape.GetComponent<Shape>().points;
+        transform.parent.gameObject.GetComponent<Environment>().updateScoreDisplay();
         Debug.Log("Score: " + transform.parent.gameObject.GetComponent<Environment>().score);
     }
     void insertShape(string shapeType, Vector3 newPosition, int newID)
