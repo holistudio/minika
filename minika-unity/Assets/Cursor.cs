@@ -9,7 +9,8 @@ public class Cursor : MonoBehaviour
     public float xPosition;
     private float testPosition;
     private float cursorSize;
-    public float maxShapeSize;
+    public GameObject maxShape;
+    private float maxShapeSize;
     public float minPosition;
     public float maxPosition;
     public float tolerance;
@@ -25,6 +26,7 @@ public class Cursor : MonoBehaviour
         xPosition = transform.position.x;
         testPosition = transform.position.x;
         cursorSize = transform.localScale.x;
+        maxShapeSize = maxShape.transform.localScale.x;
     }
 
     bool checkInBounds(float testPosition)
