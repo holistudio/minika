@@ -2869,7 +2869,7 @@ MonoBehaviour:
   currentID: 0
   currentShape: {fileID: 1040810510}
   xPosition: 0
-  maxShapeSize: 1.2
+  maxShape: {fileID: 1138868118}
   minPosition: -3
   maxPosition: 3
   tolerance: 0.1
