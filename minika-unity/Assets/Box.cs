@@ -189,6 +189,10 @@ public class Box : MonoBehaviour
 
             string newShapeType = (string) possibleShapesList[nextIndex];
             // Debug.Log("Two " + shapeType + " make a " + newShapeType);
+            if (newShapeType.Equals("Watermelon"))
+            {
+                transform.parent.gameObject.GetComponent<Environment>().displaySuika();
+            }
 
             // find and remove the pair from touchingPairs ArrayList
             removePair(pairToRemove);
