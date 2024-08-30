@@ -173,6 +173,10 @@ public class Box : MonoBehaviour
 
         if(!shapeType.Equals("Watermelon"))
         {
+            //disable colliders
+            shape1.GetComponent<CircleCollider2D>().enabled = false;
+            shape2.GetComponent<CircleCollider2D>().enabled = false;
+
             // get shapeIDs
             int shape1ID = shape1.GetComponent<Shape>().id;
             int shape2ID = shape2.GetComponent<Shape>().id;
