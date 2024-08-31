@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -210,6 +211,36 @@ public class Box : MonoBehaviour
         Destroy(shape1);
         Destroy(shape2);
     }
+    void removeOtherPairs(int[] pair)
+    {
+        bool uniquePairs = false;
+        int indexToRemove = -1;
+        while (uniquePairs == false)
+        {
+            for (int i = 0; i < touchingPairs.Count; i++)
+            {
+                int[] currentPair = (int[])touchingPairs[i];
+                if (currentPair[0] == pair[0] && currentPair[1] != pair[1])
+                {
+                    indexToRemove = i;
+                    break;
+                }
+                if (currentPair[0] == pair[1] && currentPair[1] != pair[0])
+                {
+                    indexToRemove = i;
+                    break;
+                }
+            }
+            if ((indexToRemove != -1) && (indexToRemove < touchingPairs.Count))
+            {
+                touchingPairs.RemoveAt(indexToRemove);
+            }
+            else
+            {
+                uniquePairs = true;
+            }
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -223,6 +254,12 @@ public class Box : MonoBehaviour
         while (touchingPairs.Count > 0)
         {
             int[] pair = (int[]) touchingPairs[0];
+
+            // Check for pairs sharing the same shape ID
+            // meaning multiple shapes are touching one shape
+            // remove the shape pairs until all shape pairs have unique shape IDs
+            removeOtherPairs(pair);
+
             GameObject shape1 = getShape(pair[0]);
             GameObject shape2 = getShape(pair[1]);
             mergeShape(shape1, shape2);
