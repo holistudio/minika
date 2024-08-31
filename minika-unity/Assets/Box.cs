@@ -186,6 +186,7 @@ public class Box : MonoBehaviour
             // compute the midpoint between the two shapes' centroids
             float newX = (shape1.transform.position.x + shape2.transform.position.x)/2;
             float newY = (shape1.transform.position.y + shape2.transform.position.y)/2;
+            newY = newY - 0.2f;
             Vector3 newPosition = new Vector3(newX, newY, 1);
 
             // determine the next largest shape
