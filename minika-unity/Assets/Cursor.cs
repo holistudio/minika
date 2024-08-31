@@ -29,15 +29,15 @@ public class Cursor : MonoBehaviour
         maxShapeSize = maxShape.transform.localScale.x;
     }
 
-    bool checkInBounds(float testPosition)
-    {
-        if (((testPosition - (maxShapeSize/2)) > (minPosition - tolerance)) & 
-        ((testPosition + (maxShapeSize/2)) < (maxPosition + tolerance)))
-        {
-            return true;
-        }
-        return false;
-    }
+    // bool checkInBounds(float testPosition)
+    // {
+    //     if (((testPosition - (maxShapeSize/2)) > (minPosition - tolerance)) & 
+    //     ((testPosition + (maxShapeSize/2)) < (maxPosition + tolerance)))
+    //     {
+    //         return true;
+    //     }
+    //     return false;
+    // }
     void moveCursor(string direction)
     {
 
@@ -51,12 +51,23 @@ public class Cursor : MonoBehaviour
         }
 
         // check if next cursor position is within bounds
-        if(checkInBounds(testPosition))
+        // if(checkInBounds(testPosition))
+        // {
+        //     // move cursor to next position
+        //     xPosition = testPosition;
+        //     transform.position = new Vector3(xPosition, transform.position.y, transform.position.z);
+        // }
+
+        if ((testPosition - (maxShapeSize/2)) < minPosition)
         {
-            // move cursor to next position
-            xPosition = testPosition;
-            transform.position = new Vector3(xPosition, transform.position.y, transform.position.z);
+            testPosition = maxPosition - (maxShapeSize/2) - tolerance;
         }
+        if ((testPosition + (maxShapeSize/2)) > maxPosition)
+        {
+            testPosition = minPosition + (maxShapeSize/2) + tolerance;
+        }
+        xPosition = testPosition;
+        transform.position = new Vector3(xPosition, transform.position.y, transform.position.z);
         
     }
 
